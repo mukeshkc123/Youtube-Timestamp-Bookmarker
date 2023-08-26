@@ -1,0 +1,37 @@
+{
+    "name": "Youtube Video Bookmarker",
+    "version": "0.1.0",
+    "description": "It Saves timestamps in YT videos",
+    "permissions": ["storage", "tabs"],
+    "host_permissions": ["https://*.youtube.com/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://*.youtube.com/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "./bookmark.png",
+          "./play.png",
+          "./delete.png",
+          "./save.png"
+        ],
+        "matches": ["https://*.youtube.com/*"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "main.png",
+        "24": "main.png",
+        "32": "main.png"
+      },
+      "default_title": "YT Bookmarks",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 3
+  }
